@@ -9,7 +9,7 @@ from agno.agent import Agent, RunResponse
 from agno.models.groq import Groq
 from agno.tools.googlesearch import GoogleSearchTools
 from agno.models.huggingface import HuggingFace
-from .models import CaseStudyInput, CaseStudyOutput
+from models import CaseStudyInput, CaseStudyOutput
 
 app=FastAPI()
 
