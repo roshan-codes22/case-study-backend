@@ -18,7 +18,7 @@ app=FastAPI()
 
 
 origins = [
-    "https://your-vercel-app.vercel.app",
+    "https://case-study-generator.vercel.app",
     "http://localhost:3000",
 ]
 
