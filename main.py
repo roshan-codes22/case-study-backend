@@ -10,8 +10,25 @@ from agno.models.groq import Groq
 from agno.tools.googlesearch import GoogleSearchTools
 from agno.models.huggingface import HuggingFace
 from models import CaseStudyInput, CaseStudyOutput
+from fastapi.middleware.cors import CORSMiddleware
+
+
 
 app=FastAPI()
+
+
+origins = [
+    "https://your-vercel-app.vercel.app",
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 load_dotenv()
 
