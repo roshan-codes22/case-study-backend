@@ -98,11 +98,11 @@ async def generate_case_study (input_data: CaseStudyInput) -> CaseStudyOutput:
             raise HTTPException(status_code=400, detail="Client name is required for Web Search")
 
         # Use the websearch_agent to get client information
-        web_search_response: RunResponse = await websearch_agent.run(client_info)
+        web_search_response: RunResponse = websearch_agent.run(client_info)
         client_background = web_search_response.content if web_search_response and web_search_response.content else "No specific client information found on the web."
 
         formatted_input = input_data.model_dump_json(indent=4) # Use Pydantic's method for JSON serialization
-        enhancer_response: RunResponse = await enhancer_agent.run(formatted_input) # Use await for async agent run
+        enhancer_response: RunResponse = enhancer_agent.run(formatted_input) # Use await for async agent run
 
         final_response=f"""
         ## About {client_info}
